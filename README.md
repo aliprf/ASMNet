@@ -7,6 +7,7 @@ https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl
 
 
 ## Introdution
+
  ASMNet is a lightweight Convolutional Neural Network (CNN) which is designed to perform face alignment and pose estimation efficiently while having acceptable accuracy. ASMNet proposed inspired by MobileNetV2, modified to be suitable for face alignment and pose
 estimation, while being about 2 times smaller in terms of number of the parameters. Moreover, Inspired by Active Shape Model (ASM), ASM-assisted loss function is proposed in order to improve the accuracy of facial landmark points detection and pose estimation.
 
@@ -21,13 +22,17 @@ The implementation of ASMNet in TensorFlow is provided in the following path:
 https://github.com/aliprf/ASMNet/blob/master/cnn_model.py
 
 
+
 ## ASM Loss
+
 We proposed a new loss function called ASM-LOSS which utilizes ASM to improve the accuracy of the network. In other words, during the training process, the loss function compares the predicted facial landmark points with their corresponding ground truth as well as the smoothed version the ground truth which is generated using ASM operator. Accordingly, ASM-LOSS guides the network to first learn the smoothed distribution of the facial landmark points. Then, it leads the network to learn the original landmark points. For more detail please refer to the paper.
 Following is the ASM Loss diagram:
 
 ![ASM Loss](https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/Lossfunction.png?raw=true)
 
+
 ## Evaluation
+
 As you can see in the following tables, ASMNet has only 1.4 M parameters which is the smallets comparing to the similar Facial landmark points detection models. Moreover, ASMNet designed to performs Face alignment as well as Pose estimation with a very small CNN while having an acceptable accuracy. 
 
 ![num of params](https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/num_params.png?raw=true)
@@ -50,6 +55,11 @@ The visual performance of Pose estimation task using ASMNet is very accurate and
 
 ![pose sample visual](https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/posesample.png?raw=true)
 
+
+----------------------------------------------------------------------------------------------------------------------------------
+## Training Network from scratch
+
+## Using the pre=trained models:
 
 
 Please cite this work as:
