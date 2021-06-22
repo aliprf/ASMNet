@@ -59,7 +59,7 @@ The visual performance of Pose estimation task using ASMNet is very accurate and
 ----------------------------------------------------------------------------------------------------------------------------------
 ## Training Network from scratch
 
-## Using the pre=trained models:
+## Using the pre-trained models:
 
 
 Please cite this work as:
