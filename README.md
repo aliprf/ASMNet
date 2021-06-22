@@ -57,9 +57,18 @@ The visual performance of Pose estimation task using ASMNet is very accurate and
 
 
 ----------------------------------------------------------------------------------------------------------------------------------
-## Training Network from scratch
+## Using the pre-trained models
+You can test and use the preetrained models using the following codes which are available in the following file:
+  https://github.com/aliprf/ASMNet/blob/master/main.py
+  
+```
+  tester = Test()
+  tester.test_model(ds_name=DatasetName.w300,
+                      pretrained_model_path='./pre_trained_models/ASMNet/ASM_loss/ASMNet_300W_ASMLoss.h5')
+```
 
-## Using the pre-trained models:
+
+## Training Network from scratch
 
 
 Please cite this work as:
