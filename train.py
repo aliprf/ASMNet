@@ -57,7 +57,7 @@ class Train:
         cnn = CNNModel()
         '''making models'''
         model = cnn.get_model(arch=self.arch, output_len=self.num_landmark)
-        if weight_path is not  None:
+        if weight_path is not None:
             model.load_weights(weight_path)
 
         '''create sample generator'''
@@ -71,7 +71,6 @@ class Train:
         for epoch in range(LearningConfig.epochs):
             image_names, landmark_names, pose_names = shuffle(image_names, landmark_names, pose_names)
             for batch_index in range(step_per_epoch):
-
                 '''load annotation and images'''
                 images, annotation_gr, poses_gr = self._get_batch_sample(
                     batch_index=batch_index,
@@ -114,7 +113,7 @@ class Train:
 
         with tf.GradientTape() as tape:
             '''create annotation_predicted'''
-            annotation_predicted, pose_predicted= model(images, training=True)
+            annotation_predicted, pose_predicted = model(images, training=True)
             '''calculate loss'''
             mse_loss, asm_loss = c_loss.calculate_landmark_ASM_assisted_loss(landmark_pr=annotation_predicted,
                                                                              landmark_gt=annotation_gt)
@@ -128,15 +127,17 @@ class Train:
         '''apply Gradients:'''
         optimizer.apply_gradients(zip(gradients_of_model, model.trainable_variables))
         '''printing loss Values: '''
-        tf.print("->EPOCH: ", str(epoch), "->STEP: ", str(step) + '/' + str(total_steps), ' -> : total_loss: ', total_loss)
+        tf.print("->EPOCH: ", str(epoch), "->STEP: ", str(step) + '/' + str(total_steps), ' -> : total_loss: ',
+                 total_loss)
 
     def _create_generators(self):
         """
         :return:
         """
-        image_names, landmark_filenames, pose_names = self._create_image_and_labels_name(img_path=self.img_path,
-                                                                      annotation_path=self.annotation_path,
-                                                                      pose_path=self.pose_path)
+        image_names, landmark_filenames, pose_names = \
+            self._create_image_and_labels_name(img_path=self.img_path,
+                                               annotation_path=self.annotation_path,
+                                               pose_path=self.pose_path)
         return image_names, landmark_filenames, pose_names
 
     def _create_image_and_labels_name(self, img_path, annotation_path, pose_path):
@@ -173,11 +174,11 @@ class Train:
 
         '''create batch data and normalize images'''
         batch_img = img_filenames[
-                  batch_index * LearningConfig.batch_size:(batch_index + 1) * LearningConfig.batch_size]
-        batch_lnd = landmark_filenames[
-                  batch_index * LearningConfig.batch_size:(batch_index + 1) * LearningConfig.batch_size]
-        batch_pose = pose_filenames[
                     batch_index * LearningConfig.batch_size:(batch_index + 1) * LearningConfig.batch_size]
+        batch_lnd = landmark_filenames[
+                    batch_index * LearningConfig.batch_size:(batch_index + 1) * LearningConfig.batch_size]
+        batch_pose = pose_filenames[
+                     batch_index * LearningConfig.batch_size:(batch_index + 1) * LearningConfig.batch_size]
         '''create img and annotations'''
         img_batch = np.array([imread(self.img_path + file_name) for file_name in batch_img]) / 255.0
         lnd_batch = np.array([self._load_and_normalize(self.annotation_path + file_name) for file_name in batch_lnd])
