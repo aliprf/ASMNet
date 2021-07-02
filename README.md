@@ -70,6 +70,11 @@ You can test and use the preetrained models using the following codes which are 
 
 ## Training Network from scratch
 
+### Installing the requirements
+### Preparing Data
+### Training 
+
+
 
 Please cite this work as:
 
