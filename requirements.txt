@@ -1,0 +1,23 @@
+# for cuda 9
+# pip install torch==1.2.0+cu92 torchvision==0.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
+#
+#torch
+#torchvision
+bottleneck
+numpy==1.19.2
+#tensorflow==1.14.0
+tensorflow==2.3.1
+#tensorflow-gpu==1.14
+# keras==2.2.4
+keras==2.4.3
+matplotlib
+opencv-python
+opencv-contrib-python
+scipy
+scikit-learn
+scikit-image
+Pillow
+tqdm
+efficientnet
+# tfkerassurgeon
+tensorboard
