@@ -3,6 +3,10 @@ class DatasetName:
     wflw = 'wflw'
 
 
+class ModelArch:
+    ASMNet = 'ASMNet'
+    MNV2 = 'mobileNetV2'
+
 class DatasetType:
     data_type_train = 0
     data_type_validation = 1

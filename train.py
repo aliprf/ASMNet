@@ -116,7 +116,9 @@ class Train:
             annotation_predicted, pose_predicted = model(images, training=True)
             '''calculate loss'''
             mse_loss, asm_loss = c_loss.calculate_landmark_ASM_assisted_loss(landmark_pr=annotation_predicted,
-                                                                             landmark_gt=annotation_gt)
+                                                                             landmark_gt=annotation_gt,
+                                                                             current_epoch=epoch,
+                                                                             total_steps=total_steps)
             pose_loss = c_loss.calculate_pose_loss(x_pr=pose_predicted, x_gt=poses_gt)
 
             '''calculate loss'''
