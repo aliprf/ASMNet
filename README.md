@@ -6,7 +6,7 @@ Link to the paper:
 https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl=en
 
 
-## Introdution
+## Introduction
 
  ASMNet is a lightweight Convolutional Neural Network (CNN) which is designed to perform face alignment and pose estimation efficiently while having acceptable accuracy. ASMNet proposed inspired by MobileNetV2, modified to be suitable for face alignment and pose
 estimation, while being about 2 times smaller in terms of number of the parameters. Moreover, Inspired by Active Shape Model (ASM), ASM-assisted loss function is proposed in order to improve the accuracy of facial landmark points detection and pose estimation.
