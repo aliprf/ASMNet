@@ -57,6 +57,15 @@ The visual performance of Pose estimation task using ASMNet is very accurate and
 
 
 ----------------------------------------------------------------------------------------------------------------------------------
+## Installing the requirements
+In order to run the code you need to install python >= 3.5. 
+The requirements and the libraries needed to run the code can be install using the following command:
+
+```
+  pip install -r requirements.txt
+```
+
+
 ## Using the pre-trained models
 You can test and use the preetrained models using the following codes which are available in the following file:
   https://github.com/aliprf/ASMNet/blob/master/main.py
@@ -70,7 +79,8 @@ You can test and use the preetrained models using the following codes which are 
 
 ## Training Network from scratch
 
-### Installing the requirements
+
+
 ### Preparing Data
 ### Training 
 
