@@ -80,10 +80,26 @@ You can test and use the preetrained models using the following codes which are 
 ## Training Network from scratch
 
 
-
 ### Preparing Data
-### Training 
+Data needs to be normalized and saved in npy format. 
 
+### PCA creation
+you can you the pca_utility.py class to create the eigenvalues, eigenvectors, and the meanvector:
+```
+pca_calc = PCAUtility()
+    pca_calc.create_pca_from_npy(dataset_name=DatasetName.w300,
+                                 labels_npy_path='./data/w300/normalized_labels/',
+                                 pca_percentages=90)
+```
+### Training 
+The training implementation is located in train.py class. You can use the following code to start the training:
+
+```
+ trainer = Train(arch=ModelArch.ASMNet,
+                    dataset_name=DatasetName.w300,
+                    save_path='./',
+                    asm_accuracy=90)
+```
 
 
 Please cite this work as:
