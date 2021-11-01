@@ -1,3 +1,9 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/asmnet-a-lightweight-deep-neural-network-for/pose-estimation-on-300w-full)](https://paperswithcode.com/sota/pose-estimation-on-300w-full?p=asmnet-a-lightweight-deep-neural-network-for)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/asmnet-a-lightweight-deep-neural-network-for/face-alignment-on-wflw)](https://paperswithcode.com/sota/face-alignment-on-wflw?p=asmnet-a-lightweight-deep-neural-network-for)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/asmnet-a-lightweight-deep-neural-network-for/face-alignment-on-300w)](https://paperswithcode.com/sota/face-alignment-on-300w?p=asmnet-a-lightweight-deep-neural-network-for)
+
 # [ASMNet](https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl=en)
 
 ## a Lightweight Deep Neural Network for Face Alignment and Pose Estimation
