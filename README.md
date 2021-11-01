@@ -2,10 +2,13 @@
 
 ## a Lightweight Deep Neural Network for Face Alignment and Pose Estimation
 
-Link to the paper:
+#### Link to the paper:
 https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl=en
 
-Link to the article on Towardsdatascience.com:
+#### Link to the paperswithcode.com:
+https://paperswithcode.com/paper/asmnet-a-lightweight-deep-neural-network-for
+
+#### Link to the article on Towardsdatascience.com:
 https://aliprf.medium.com/asmnet-a-lightweight-deep-neural-network-for-face-alignment-and-pose-estimation-9e9dfac07094
 
 ```
