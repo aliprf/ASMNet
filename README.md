@@ -1,12 +1,36 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/pose-estimation-on-300w-full)](https://paperswithcode.com/sota/pose-estimation-on-300w-full?p=deep-active-shape-model-for-face-alignment)
+
+	
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/face-alignment-on-wflw)](https://paperswithcode.com/sota/face-alignment-on-wflw?p=deep-active-shape-model-for-face-alignment)
+
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/face-alignment-on-300w)](https://paperswithcode.com/sota/face-alignment-on-300w?p=deep-active-shape-model-for-face-alignment)
+
 # [ASMNet](https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl=en)
 
 ## a Lightweight Deep Neural Network for Face Alignment and Pose Estimation
 
-Link to the paper:
+#### Link to the paper:
 https://scholar.google.com/scholar?oi=bibs&cluster=3428857185978099736&btnI=1&hl=en
 
+#### Link to the paperswithcode.com:
+https://paperswithcode.com/paper/asmnet-a-lightweight-deep-neural-network-for
 
-## Introdution
+#### Link to the article on Towardsdatascience.com:
+https://aliprf.medium.com/asmnet-a-lightweight-deep-neural-network-for-face-alignment-and-pose-estimation-9e9dfac07094
+
+```
+Please cite this work as:
+
+      @inproceedings{fard2021asmnet,
+            title={ASMNet: A Lightweight Deep Neural Network for Face Alignment and Pose Estimation},
+            author={Fard, Ali Pourramezan and Abdollahi, Hojjat and Mahoor, Mohammad},
+            booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+            pages={1521--1530},
+            year={2021}
+      }
+```
+
+## Introduction
 
  ASMNet is a lightweight Convolutional Neural Network (CNN) which is designed to perform face alignment and pose estimation efficiently while having acceptable accuracy. ASMNet proposed inspired by MobileNetV2, modified to be suitable for face alignment and pose
 estimation, while being about 2 times smaller in terms of number of the parameters. Moreover, Inspired by Active Shape Model (ASM), ASM-assisted loss function is proposed in order to improve the accuracy of facial landmark points detection and pose estimation.
@@ -59,7 +83,7 @@ The visual performance of Pose estimation task using ASMNet is very accurate and
 ----------------------------------------------------------------------------------------------------------------------------------
 ## Installing the requirements
 In order to run the code you need to install python >= 3.5. 
-The requirements and the libraries needed to run the code can be install using the following command:
+The requirements and the libraries needed to run the code can be installed using the following command:
 
 ```
   pip install -r requirements.txt
@@ -80,10 +104,26 @@ You can test and use the preetrained models using the following codes which are 
 ## Training Network from scratch
 
 
-
 ### Preparing Data
-### Training 
+Data needs to be normalized and saved in npy format. 
 
+### PCA creation
+you can you the pca_utility.py class to create the eigenvalues, eigenvectors, and the meanvector:
+```
+pca_calc = PCAUtility()
+    pca_calc.create_pca_from_npy(dataset_name=DatasetName.w300,
+                                 labels_npy_path='./data/w300/normalized_labels/',
+                                 pca_percentages=90)
+```
+### Training 
+The training implementation is located in train.py class. You can use the following code to start the training:
+
+```
+ trainer = Train(arch=ModelArch.ASMNet,
+                    dataset_name=DatasetName.w300,
+                    save_path='./',
+                    asm_accuracy=90)
+```
 
 
 Please cite this work as:
