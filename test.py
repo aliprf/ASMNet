@@ -12,6 +12,7 @@ from os.path import isfile, join
 from scipy.integrate import simps
 from scipy.integrate import trapz
 import matplotlib.pyplot as plt
+from skimage.io import imread
 
 class Test:
     def test_model(self, pretrained_model_path, ds_name):
@@ -25,8 +26,15 @@ class Test:
         model = tf.keras.models.load_model(pretrained_model_path)
 
         for i, file in tqdm(enumerate(os.listdir(test_image_path))):
-            img = test_image_path + file
-            model.predict(np.expand_dims(img, axis=0))
+            # load image and then normalize it
+            img = imread(test_image_path + file)/255.0
 
-            landmark_predicted = model.predict[0][0]
-            pose_predicted = model.predict[1][0]
+            # prediction
+            prediction = model.predict(np.expand_dims(img, axis=0))
+
+            # the first dimension is landmark point
+            landmark_predicted = prediction[0][0]
+
+            # the second dimension is the pose
+            pose_predicted = prediction[1][0]
+
