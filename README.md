@@ -1,10 +1,6 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/pose-estimation-on-300w-full)](https://paperswithcode.com/sota/pose-estimation-on-300w-full?p=deep-active-shape-model-for-face-alignment)
 
 	
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/face-alignment-on-wflw)](https://paperswithcode.com/sota/face-alignment-on-wflw?p=deep-active-shape-model-for-face-alignment)
-
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/deep-active-shape-model-for-face-alignment/face-alignment-on-300w)](https://paperswithcode.com/sota/face-alignment-on-300w?p=deep-active-shape-model-for-face-alignment)
-
 ```diff
 ! plaese STAR the repo if you like it.
 ```
