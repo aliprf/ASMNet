@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASMNet - Face Alignment and Pose Estimation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F2EFE5;
+            color: #0D9276;
+            margin: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0D9276;
+        }
+
+
+        #main-content {
+             max-width: 1200px;
+            margin: auto;
+            margin-top:20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;
+            height: auto;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+         blockquote {
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+        }
+
+        .citation {
+            font-style: italic;
+            color: #777;
+        }
+
+        .highlight {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+
+        h2 {
+            color: #436850;
+        }
+
+        h3 {
+            color: #3498db;
+        }
+
+        p {
+            color: #555;
+        }
+
+        a {
+            color: #3498db;
+        }
+
+        a:hover {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ASMNet - Face Alignment and Pose Estimation</h1>
+    </header>
+
+    <div id="main-content">
+        <!-- ... (previous content) ... -->
+
+        <h2>Introduction</h2>
+
+        <p>
+            ASMNet is a lightweight Convolutional Neural Network (CNN) designed for efficient face alignment and pose estimation with acceptable accuracy. ASMNet is inspired by MobileNetV2, modified to be suitable for face alignment and pose estimation while being about 2 times smaller in terms of the number of parameters. Moreover, inspired by Active Shape Model (ASM), an ASM-assisted loss function is proposed to improve the accuracy of facial landmark points detection and pose estimation.
+        </p>
+        </div>
+	  <div id="main-content">
+  
+        <h2>ASMnet Architecture</h2>
+
+        <p>
+            Features in a CNN are distributed hierarchically. In other words, the lower layers have features such as edges, and corners which are more suitable for tasks like landmark localization and pose estimation, and deeper layers contain more abstract features that are more suitable for tasks like image classification and image detection. Furthermore, training a network for correlated tasks simultaneously builds a synergy that can improve the performance of each task.
+        </p>
+
+        <p>
+            Having said that, we designed ASMNet by fusing the features that are available in different layers of the model. Furthermore, by concatenating the features that are collected after each global average pooling layer in the back-propagation process, it will be possible for the network to evaluate the effect of each shortcut path. The following is the ASMNet architecture:
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/arch.png?raw=true" alt="ASMNet architecture">
+
+        <p>
+            The implementation of ASMNet in TensorFlow is provided in the following path:
+            <a href="https://github.com/aliprf/ASMNet/blob/master/cnn_model.py">ASMNet TensorFlow Implementation</a>
+        </p>
+ </div>
+ 
+  <div id="main-content">
+        <h2>ASM Loss</h2>
+
+        <p>
+            We proposed a new loss function called ASM-LOSS which utilizes ASM to improve the accuracy of the network. In other words, during the training process, the loss function compares the predicted facial landmark points with their corresponding ground truth as well as the smoothed version of the ground truth which is generated using ASM operator. Accordingly, ASM-LOSS guides the network to first learn the smoothed distribution of the facial landmark points. Then, it leads the network to learn the original landmark points. For more detail, please refer to the paper.
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/Lossfunction.png?raw=true" alt="ASM Loss diagram">
+
+ </div>
+ 
+  <div id="main-content">
+        <h2>Evaluation</h2>
+
+        <p>
+            As you can see in the following tables, ASMNet has only 1.4 M parameters which is the smallest comparing to similar Facial landmark points detection models. Moreover, ASMNet is designed to perform Face alignment as well as Pose estimation with a very small CNN while having an acceptable accuracy.
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/num_params.png?raw=true" alt="Number of Parameters">
+
+        <p>
+            Although ASMNet is much smaller than the state-of-the-art methods on face alignment, its performance is also very good and acceptable for many real-world applications:
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/300wEval.png?raw=true" alt="300W Evaluation">
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/wflwEval.png?raw=true" alt="WFLW Evaluation">
+
+        <p>
+            As shown in the following table, ASMNet performs much better than the state-of-the-art models on 300W dataset on Pose estimation task:
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/poseEval.png?raw=true" alt="Pose Evaluation">
+
+ </div>
+ 
+  <div id="main-content">
+        <h2>Visual Performance</h2>
+
+        <p>
+            Following are some samples to show the visual performance of ASMNet on 300W and WFLW datasets:
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/300W.png?raw=true" alt="300W Visual Performance">
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/wflw.png?raw=true" alt="WFLW Visual Performance">
+
+        <p>
+            The visual performance of Pose estimation task using ASMNet is very accurate and the results are also much better than the state-of-the-art pose estimation over 300W dataset:
+        </p>
+
+        <img src="https://github.com/aliprf/ASMNet/blob/master/documents/graphical_items_in_paper/posesample.png?raw=true" alt="Pose Sample Visual Performance">
+    </div>
+     </div>
+
+    <footer>
+        <p>© 2024 ASMNet. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
